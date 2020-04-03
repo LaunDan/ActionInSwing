@@ -7,8 +7,8 @@ public class ActionPanel extends JPanel {
     private JButton button;
     private JLabel text;
 
-    public ActionPanel(){
-        this.setPreferredSize(new Dimension(300,400));
+    public ActionPanel() {
+        this.setPreferredSize(new Dimension(300, 400));
 
         button = new JButton("Button");
         this.add(button);

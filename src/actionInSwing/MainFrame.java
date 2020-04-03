@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
 
-    public MainFrame(){
+    public MainFrame() {
         this.setTitle("Action");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
