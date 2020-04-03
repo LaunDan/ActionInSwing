@@ -1,4 +1,7 @@
 package actionInSwing;
 
-public class ActionPanel {
+import javax.swing.*;
+
+public class ActionPanel extends JPanel {
+
 }

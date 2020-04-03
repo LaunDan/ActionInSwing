@@ -1,5 +1,14 @@
 package actionInSwing;
 
-public class MainFrame {
+import javax.swing.*;
 
+public class MainFrame extends JFrame {
+    public MainFrame(){
+        this.setTitle("Action");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        ActionPanel panel = new ActionPanel();
+        this.add(panel);
+        this.pack();
+    }
 }
