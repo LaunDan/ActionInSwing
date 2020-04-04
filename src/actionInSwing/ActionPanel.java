@@ -4,28 +4,44 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.spec.KeySpec;
 
 public class ActionPanel extends JPanel {
     private JButton button;
     private JLabel text;
 
     public ActionPanel() {
-        this.setPreferredSize(new Dimension(300, 400));
+        this.setPreferredSize(new Dimension(300, 30));
+
+
+        text = new JLabel("Here is text");
+        this.add(text);
 
         button = new JButton("Button");
         this.add(button);
 
-        ListenerButton listener = new ListenerButton();
-        button.addActionListener(listener);
+        ListenerOfPanel listener = new ListenerOfPanel();
+        button.addKeyListener(listener);
 
-        text = new JLabel("Here is text");
-        this.add(text);
+        this.setFocusable(true);
     }
 
-    private class ListenerButton implements ActionListener{
+    private class ListenerOfPanel implements KeyListener {
         @Override
-        public void actionPerformed(ActionEvent e){
-            text.setText("You click on the button");
+        public void keyPressed(KeyEvent e){
+            text.setText("You click on the keyboard");
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e){
+            text.setText("You released the key");
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e){
+            //is only generated if valid Unicode character could be generated
         }
     }
 
