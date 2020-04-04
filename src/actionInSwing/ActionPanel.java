@@ -19,11 +19,10 @@ public class ActionPanel extends JPanel {
         text = new JLabel("Here is text");
         this.add(text);
 
-        button = new JButton("Button");
-        this.add(button);
+
 
         ListenerOfPanel listener = new ListenerOfPanel();
-        button.addKeyListener(listener);
+        this.addKeyListener(listener);
 
         this.setFocusable(true);
     }
@@ -31,12 +30,12 @@ public class ActionPanel extends JPanel {
     private class ListenerOfPanel implements KeyListener {
         @Override
         public void keyPressed(KeyEvent e){
-            text.setText("You click on the keyboard");
+            text.setText("You click on the keyboard " + e.getKeyChar());
         }
 
         @Override
         public void keyReleased(KeyEvent e){
-            text.setText("You released the key");
+            text.setText("You released the key which code is " + e.getKeyCode());
         }
 
         @Override
