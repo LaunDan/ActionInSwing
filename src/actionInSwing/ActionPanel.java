@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 
 public class ActionPanel extends JPanel {
-    private String text = "TEXT";
+    private String text = "Daniel";
     private int x, y;
     private int directionX, directionY;
     private int widthText;
