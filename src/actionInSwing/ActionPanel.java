@@ -9,39 +9,30 @@ import java.awt.event.KeyListener;
 import java.security.spec.KeySpec;
 
 public class ActionPanel extends JPanel {
-    private JButton button;
+    private long counter;
     private JLabel text;
 
     public ActionPanel() {
-        this.setPreferredSize(new Dimension(300, 30));
+        this.counter = 0;
+        this.setPreferredSize(new Dimension(80, 30));
 
-
-        text = new JLabel("Here is text");
+        text = new JLabel();
         this.add(text);
-
-
+        text.setText(String.valueOf(counter));
 
         ListenerOfPanel listener = new ListenerOfPanel();
-        this.addKeyListener(listener);
+        Timer timer = new Timer(10, listener);
+        timer.start();
 
-        this.setFocusable(true);
     }
 
-    private class ListenerOfPanel implements KeyListener {
+    private class ListenerOfPanel implements ActionListener {
         @Override
-        public void keyPressed(KeyEvent e){
-            text.setText("You click on the keyboard " + e.getKeyChar());
+        public void actionPerformed(ActionEvent e){
+            counter++;
+            text.setText(String.valueOf(counter));
         }
 
-        @Override
-        public void keyReleased(KeyEvent e){
-            text.setText("You released the key which code is " + e.getKeyCode());
-        }
-
-        @Override
-        public void keyTyped(KeyEvent e){
-            //is only generated if valid Unicode character could be generated
-        }
     }
 
 
