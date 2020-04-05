@@ -10,10 +10,12 @@ public class ActionPanel extends JPanel {
     private String text = "TEXT";
     private int x, y;
     private int directionX, directionY;
+    private int widthText;
+    private int heightText;
 
     public ActionPanel() {
-        this.x = 0;
-        this.y = 0;
+        this.x = (200 - widthText);
+        this.y = (150 - heightText);
         this.directionX = 1;
         this.directionY = 1;
         this.setPreferredSize(new Dimension(400, 300));
@@ -21,6 +23,9 @@ public class ActionPanel extends JPanel {
 
         Font font = new Font("Monospaced", Font.BOLD, 40);
         this.setFont(font);
+        FontMetrics fm = this.getFontMetrics(font);
+        widthText = fm.stringWidth(text);
+        heightText = fm.getHeight();
 
         Timer timer = new Timer(20, new ListenerOfPanel());
         timer.start();
@@ -31,6 +36,7 @@ public class ActionPanel extends JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
+
         g.drawString(text, x, y);
     }
 
@@ -39,10 +45,12 @@ public class ActionPanel extends JPanel {
         x += directionX;
         y += directionY;
 
-        if (x >= this.getWidth() || x <= 0){
+
+
+        if (x >= (this.getWidth() - widthText) || x <= 0){
             directionX = -directionX;
         }
-        if (y >= this.getHeight() || (y <= 0)){
+        if (y >= (this.getHeight()) || (y <= (heightText - 30))){
             directionY = -directionY;
         }
     }
