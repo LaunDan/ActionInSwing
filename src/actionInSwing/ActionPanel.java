@@ -34,7 +34,7 @@ public class ActionPanel extends JPanel {
         g.drawString(text, x, y);
     }
 
-   
+
     private void move(){
         x += directionX;
         y += directionY;
