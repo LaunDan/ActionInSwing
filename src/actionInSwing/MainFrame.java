@@ -5,7 +5,7 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
 
     public MainFrame() {
-        this.setTitle("Timer");
+        this.setTitle("TextMoving");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
