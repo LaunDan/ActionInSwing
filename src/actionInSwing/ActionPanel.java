@@ -19,7 +19,7 @@ public class ActionPanel extends JPanel {
         this.directionX = 1;
         this.directionY = 1;
         this.setPreferredSize(new Dimension(400, 300));
-        this.setBackground(Color.green);
+        this.setBackground(Color.YELLOW);
 
         Font font = new Font("Monospaced", Font.BOLD, 40);
         this.setFont(font);
